@@ -43,14 +43,14 @@ const nephilm = localFont({
 
 export const metadata = {
   metadataBase: new URL('https://prestigethanenewproject.com'),
-  title: 'Prestige Thane Rising | 2, 3 & 4 BHK Homes at Thane West, Mumbai',
-  description: "Prestige Thane Rising at Thane West, Mumbai offers thoughtfully designed 2, 3 & 4 BHK homes across 14.6 acres with 50+ lifestyle amenities. Enquire now for details.",
+  title: 'Prestige Thane Rising | Luxury 2, 3 & 4 BHK in Thane West',
+  description: "Prestige Thane Rising, Thane West offers luxury 2, 3 & 4 BHK homes with 30+ amenities from ₹1.6 Cr*. Pre-launch booking open with ₹1 Lakh EOI. Enquire now!",
   alternates: {
     canonical: 'https://prestigethanenewproject.com',
   },
   openGraph: {
-    title: 'Prestige Thane Rising | 2, 3 & 4 BHK Homes at Thane West, Mumbai',
-    description: "Prestige Thane Rising at Thane West, Mumbai offers thoughtfully designed 2, 3 & 4 BHK homes across 14.6 acres with 50+ lifestyle amenities. Enquire now for details.",
+    title: 'Prestige Thane Rising | Luxury 2, 3 & 4 BHK in Thane West',
+    description: "Prestige Thane Rising, Thane West offers luxury 2, 3 & 4 BHK homes with 30+ amenities from ₹1.6 Cr*. Pre-launch booking open with ₹1 Lakh EOI. Enquire now!",
     url: 'https://prestigethanenewproject.com',
     siteName: 'Prestige Thane Rising',
     images: [
@@ -66,8 +66,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Prestige Thane Rising | 2, 3 & 4 BHK Homes at Thane West, Mumbai',
-    description: "Prestige Thane Rising at Thane West, Mumbai offers thoughtfully designed 2, 3 & 4 BHK homes across 14.6 acres with 50+ lifestyle amenities.",
+    title: 'Prestige Thane Rising | Luxury 2, 3 & 4 BHK in Thane West',
+    description: "Prestige Thane Rising, Thane West offers luxury 2, 3 & 4 BHK homes with 30+ amenities from ₹1.6 Cr*. Pre-launch booking open with ₹1 Lakh EOI. Enquire now!",
     images: ['/images/hero/banner1.webp'],
   },
   icons: {

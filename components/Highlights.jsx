@@ -1,35 +1,35 @@
 'use client'
 import React from 'react'
-import { MapPin, Crown, TreePine, Sparkles, TrendingUp } from 'lucide-react'
+import { Building2, Maximize2, Activity, ShoppingBag, TreePine } from 'lucide-react'
 
 const F_JOST = 'var(--font-jost), Montserrat, sans-serif'
 const F_SANS = 'var(--font-sans), Open Sans, sans-serif'
 
 const highlightsData = [
   {
-    icon: MapPin,
-    title: 'Prime Strategic Location',
-    desc: 'Set in Kolshet at Thane West, with Ghodbunder Road and everyday conveniences within easy reach.',
+    icon: Building2,
+    title: 'Magnificent ~49-Storey Towers',
+    desc: 'Iconic skyscrapers rising up to ~49 floors with distinctive modern façades, grand drop-offs, and clear-glass balconies.',
   },
   {
-    icon: Crown,
-    title: 'Ultra-Luxury Residences',
-    desc: 'Thoughtfully designed 2, 3 & 4 BHK homes with layouts that suit different family needs.',
+    icon: Maximize2,
+    title: '10 Ft Ceilings & Private Decks',
+    desc: 'Spacious 2, 3 & 4 BHK residences featuring up to 10 ft floor-to-ceiling heights, private decks, and panoramic open views.',
+  },
+  {
+    icon: Activity,
+    title: 'Multi-Level Clubhouse & Sports',
+    desc: 'Grand multi-level clubhouse with swimming pools, gymnasium, badminton, basketball, pickleball, and squash courts.',
+  },
+  {
+    icon: ShoppingBag,
+    title: '1.30 Lakh+ Sq. Ft. High-Street Retail',
+    desc: 'Integrated retail destination spanning Ground + 2 levels, placing boutique shopping, cafés, and daily essentials at your doorstep.',
   },
   {
     icon: TreePine,
-    title: 'Low-Density Green Living',
-    desc: 'Planned across 14.6 acres with landscaped greens, open spaces and a complete community setting.',
-  },
-  {
-    icon: Sparkles,
-    title: 'World-Class Lifestyle Amenities',
-    desc: 'A lifestyle designed around 50+ amenities, shared spaces and everyday comfort.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'High Growth & Investment Value',
-    desc: 'Pre-launch pricing today with the flexibility to exit after 30 months for a defined investment horizon.',
+    title: 'Podium Greens & Ganesha Temple',
+    desc: 'Expansive central podium greens with 4 segregated access points and a dedicated, peaceful Lord Ganesha Temple on campus.',
   },
 ]
 

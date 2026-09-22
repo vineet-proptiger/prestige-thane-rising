@@ -635,7 +635,7 @@ const Hero = ({ setIsOpen }) => {
 
         {/* Mobile Luxury New Launch Pill */}
         <div className="hero-mobile-pill">
-          <span>✨</span> Exclusive New Launch
+          <span>✨</span> Exclusive Pre-Launch
         </div>
 
         {/* Main Heading */}
