@@ -662,11 +662,10 @@ const Hero = ({ setIsOpen }) => {
         {/* Bullet Points with Backdrop Layer (Desktop only via CSS) */}
         <div className="hero-bullets" style={{ marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {[
-            "Exclusive Pre-Launch Benefits",
-            "Reserve with an EOI of ₹1 Lakh*",
-            "Experience Finest Social Infrastructure",
-            "A Grand Clubhouse & 30+ Luxury Amenities",
-            
+            "Own a Prestige Address in Thane",
+            "Freedom to Exit After 30 Months",
+            "Exclusive EOI Window Now Open",
+            "Secure Your Unit with ₹1 Lakh EOI*"
           ].map((text, i) => (
           <div 
             key={i} 
