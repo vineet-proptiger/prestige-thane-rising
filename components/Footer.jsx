@@ -13,7 +13,7 @@ const Footer = () => (
     <div className="relative z-10">
       <div className="max-w-[860px] mx-auto px-2 sm:px-6 pt-14 pb-8 text-center">
         <h2 
-          className="text-[21px] sm:text-[28px] md:text-[36px] font-semibold leading-tight uppercase tracking-wide mb-2 text-white whitespace-nowrap sm:whitespace-normal" 
+          className="text-[20px] sm:text-[24px] md:text-[28px] font-semibold leading-tight uppercase tracking-wide mb-2 text-white whitespace-nowrap sm:whitespace-normal" 
           style={{ fontFamily: F_JOST }} 
           data-aos="fade-in"
         >

@@ -45,7 +45,7 @@ const Highlights = ({ setIsOpen }) => {
 
       <div className="container mx-auto px-4 md:px-8 max-w-[1200px] relative z-10">
         <h2 
-          className="text-[22px] sm:text-[28px] md:text-[36px] font-semibold leading-tight uppercase tracking-wider text-white text-center" 
+          className="text-[20px] sm:text-[24px] md:text-[28px] font-semibold leading-tight uppercase tracking-wider text-white text-center" 
           data-aos="fade-up" 
           data-aos-duration="1000" 
           style={{ fontFamily: F_JOST, marginBottom: '10px' }}

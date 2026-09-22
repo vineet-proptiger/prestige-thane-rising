@@ -33,7 +33,7 @@ const Location = () => {
         {/* Section Header */}
         <div className="mb-6 md:mb-8 text-center" data-aos="fade-down" data-aos-duration="1000">
            <h2
-             className="text-[22px] sm:text-[28px] md:text-[36px] font-semibold leading-tight uppercase tracking-wider text-white"
+             className="text-[20px] sm:text-[24px] md:text-[28px] font-semibold leading-tight uppercase tracking-wider text-white"
              style={{ fontFamily: "var(--font-jost), Montserrat, sans-serif", marginBottom: '12px' }}
            >
              LOCATION ADVANTAGES

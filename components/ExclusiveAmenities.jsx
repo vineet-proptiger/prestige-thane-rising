@@ -43,7 +43,7 @@ const ExclusiveAmenities = () => {
         {/* Section Header */}
         <div style={{ marginBottom: '40px', textAlign: 'center' }} data-aos="fade-up">
           <h2
-            className="text-[22px] sm:text-[28px] md:text-[36px] font-semibold leading-tight uppercase tracking-wider text-gray-900 text-center"
+            className="text-[20px] sm:text-[24px] md:text-[28px] font-semibold leading-tight uppercase tracking-wider text-gray-900 text-center"
             style={{ fontFamily: "var(--font-jost), Montserrat, sans-serif", margin: 0 }}
           >
             EXCLUSIVE TO FOREST RESERVE

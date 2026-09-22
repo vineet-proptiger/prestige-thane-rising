@@ -245,7 +245,7 @@ const AboutDeveloper = ({ setIsOpen }) => (
           data-aos-duration="1000" 
           data-aos-delay="100"
         >
-          <h2 className="text-[22px] sm:text-[28px] md:text-[36px] font-semibold leading-tight uppercase tracking-wider text-white mb-3" style={{ fontFamily: "var(--font-jost), Montserrat, sans-serif" }}>
+          <h2 className="text-[20px] sm:text-[24px] md:text-[28px] font-semibold leading-tight uppercase tracking-wider text-white mb-3" style={{ fontFamily: "var(--font-jost), Montserrat, sans-serif" }}>
             Get In Touch
           </h2>
           {/* Decorative Line */}

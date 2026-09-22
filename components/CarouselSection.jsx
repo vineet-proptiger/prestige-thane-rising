@@ -192,7 +192,7 @@ const CarouselSection = ({ setIsOpen, title = "Glimpses of Masterpiece", subtitl
 
         <div className="text-center mb-10 md:mb-12" data-aos="fade-up" data-aos-duration="1000">
           <h2
-            className={`text-[22px] sm:text-[28px] md:text-[36px] font-semibold leading-tight uppercase tracking-wider mx-auto ${
+            className={`text-[20px] sm:text-[24px] md:text-[28px] font-semibold leading-tight uppercase tracking-wider mx-auto ${
               id === 'amenities' ? 'text-white' : 'text-gray-900'
             }`}
             style={{ 

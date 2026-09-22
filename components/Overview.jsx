@@ -41,7 +41,7 @@ const Overview = ({ setIsOpen }) => {
       
       {/* Section Header - Spanning across top */}
       <div className="mb-6 sm:mb-8" data-aos="fade-up" data-aos-duration="1000">
-        <h2 className="text-[22px] sm:text-[28px] md:text-[36px] font-semibold leading-tight uppercase tracking-wider text-gray-900" style={{ fontFamily: "var(--font-jost), Montserrat, sans-serif", marginBottom: '6px' }}>Prestige Thane Rising</h2>
+        <h2 className="text-[20px] sm:text-[24px] md:text-[28px] font-semibold leading-tight uppercase tracking-wider text-gray-900" style={{ fontFamily: "var(--font-jost), Montserrat, sans-serif", marginBottom: '6px' }}>Prestige Thane Rising</h2>
         {/* Decorative Line */}
         <div className="flex items-center justify-start mt-1 mb-3">
           <div className="w-16 h-[1px] bg-[#B88A44]"></div>

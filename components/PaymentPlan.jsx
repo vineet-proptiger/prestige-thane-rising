@@ -45,7 +45,7 @@ const PaymentPlan = ({ setIsOpen }) => (
           border: '1px solid var(--color-gold-light)', marginBottom: '10px',
         }}>Payment Plan</span>
         <h2
-          className="text-[22px] sm:text-[28px] md:text-[36px] font-semibold leading-tight uppercase tracking-wider text-gray-900"
+          className="text-[20px] sm:text-[24px] md:text-[28px] font-semibold leading-tight uppercase tracking-wider text-gray-900"
           style={{ fontFamily: "var(--font-jost), Montserrat, sans-serif", margin: '0 0 6px' }}
         >
           Easy <strong className="font-extrabold">Flexi</strong> Payment Plan

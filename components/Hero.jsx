@@ -58,17 +58,24 @@ const Hero = ({ setIsOpen }) => {
         /* Main title */
         .hero-title {
           font-family: var(--font-jost), Montserrat, sans-serif;
-          font-size: clamp(20px, 3vw, 40px);
+          font-size: clamp(20px, 2.4vw, 32px);
           font-weight: 800;
           color: #fff;
           text-transform: uppercase;
           letter-spacing: 0.03em;
-          line-height: 1.08;
+          line-height: 1.12;
           margin: 0 0 6px;
           text-shadow: 0 2px 16px rgba(0,0,0,0.5);
         }
         @media (min-width: 1024px) {
           .hero-title {
+            font-size: 32px;
+            white-space: nowrap;
+          }
+        }
+        @media (min-width: 1280px) {
+          .hero-title {
+            font-size: 34px;
             white-space: nowrap;
           }
         }
@@ -655,10 +662,11 @@ const Hero = ({ setIsOpen }) => {
         {/* Bullet Points with Backdrop Layer (Desktop only via CSS) */}
         <div className="hero-bullets" style={{ marginBottom: '24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {[
+            "Exclusive Pre-Launch Benefits",
+            "Reserve with an EOI of ₹1 Lakh*",
             "Experience Finest Social Infrastructure",
             "A Grand Clubhouse & 30+ Luxury Amenities",
-            "Reserve with an EOI of ₹1 Lakh*",
-            "Exclusive Pre-Launch Benefits"
+            
           ].map((text, i) => (
           <div 
             key={i} 
