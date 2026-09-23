@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+
 import { PROJECT_ID, PROJECT_NAME, API_ENDPOINT, SHEET_NAME, SECRET_KEY, CITY_DISPLAY } from '../lib/config'
 import { buildTrackingFields } from '../lib/formMeta'
 
@@ -16,31 +15,22 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details', isTransp
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
-
-  const handlePhoneChange = (phone) => {
-    setFormData({ ...formData, phone })
+    if (name === 'phone') {
+      setFormData({ ...formData, [name]: value.replace(/\D/g, '').slice(0, 10) })
+    } else {
+      setFormData({ ...formData, [name]: value })
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     
-    // Generic validation since different countries have different lengths
-    if (formData.phone.length < 10) {
-      setError('Please enter a valid mobile number.')
+    if (formData.phone.length !== 10) {
+      setError('Enter valid 10-digit number')
       return
     }
-
-    // Optional: Indian strict validation if country code is India (91)
-    if (formData.phone.startsWith('91') && formData.phone.length === 12) {
-      const mobilePart = formData.phone.slice(2)
-      if (!/^[6-9]\d{9}$/.test(mobilePart)) {
-        setError('Indian phone number must start with 6, 7, 8, or 9')
-        return
-      }
-    } else if (formData.phone.startsWith('91') && formData.phone.length !== 12) {
-      setError('Please enter a valid 10-digit Indian mobile number.')
+    if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      setError('Phone number must start with 6, 7, 8, or 9')
       return
     }
 
@@ -86,8 +76,7 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details', isTransp
       }
     }
 
-    // formData.phone already includes country code from react-phone-input-2
-    const fullPhone = `+${formData.phone}`
+    const fullPhone = `+91${formData.phone}`
 
     const payload = new FormData()
     payload.append('fullname', formData.fullname)
@@ -198,45 +187,8 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details', isTransp
       <input type="email" name="email" placeholder="Email Id (optional)" value={formData.email} onChange={handleChange}
         className={dynamicInputClass} style={dynamicInputStyle} />
       
-      {/* react-phone-input-2 wrapper */}
-      <div className={wrapperClass} style={dynamicInputStyle}>
-        <PhoneInput
-          country={'in'}
-          value={formData.phone}
-          onChange={handlePhoneChange}
-          placeholder="Phone Number"
-          enableSearch={true}
-          disableSearchIcon={true}
-          searchPlaceholder="Search country..."
-          inputStyle={{
-            width: '100%',
-            height: isTransparent ? '46px' : '42px',
-            backgroundColor: 'transparent',
-            border: 'none',
-            color: 'inherit',
-            fontFamily: F_SANS,
-            fontSize: '16px',
-            paddingLeft: '48px'
-          }}
-          buttonStyle={{
-            backgroundColor: 'transparent',
-            border: 'none',
-            borderRight: '1px solid rgba(156, 163, 175, 0.3)',
-            borderRadius: isTransparent ? '8px 0 0 8px' : '6px 0 0 6px',
-            padding: '0 4px'
-          }}
-          dropdownStyle={{
-            color: '#111',
-            fontFamily: F_SANS,
-            width: '300px',
-            borderRadius: '8px',
-            boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
-          }}
-          containerStyle={{
-            width: '100%',
-          }}
-        />
-      </div>
+      <input type="tel" name="phone" required placeholder="10-digit mobile number" maxLength={10} value={formData.phone} onChange={handleChange}
+        className={dynamicInputClass} style={dynamicInputStyle} />
 
       {error && <p className="text-red-500 text-xs mt-[-4px] mb-2" style={{ fontFamily: F_SANS }}>{error}</p>}
 
@@ -253,53 +205,7 @@ const LeadForm = ({ formName = 'Hero Form', btnText = 'Submit Details', isTransp
         {loading ? '...' : btnText}
       </button>
 
-      {/* Override hover styles for the flag button since it uses internal classes */}
-      <style jsx global>{`
-        .react-tel-input .flag-dropdown {
-          background-color: transparent !important;
-          border: none !important;
-          border-right: 1px solid ${isTransparent ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.1)'} !important;
-        }
-        .react-tel-input .flag-dropdown:hover, 
-        .react-tel-input .flag-dropdown:focus,
-        .react-tel-input .flag-dropdown.open {
-          background-color: ${isTransparent ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.02)'} !important;
-        }
-        .react-tel-input .selected-flag:hover, 
-        .react-tel-input .selected-flag:focus {
-          background-color: transparent !important;
-        }
-        
-        /* Dropdown List Styling */
-        .react-tel-input .country-list {
-          background-color: ${isTransparent ? '#180C06' : '#ffffff'} !important;
-          border: 1px solid ${isTransparent ? 'rgba(184,138,68,0.4)' : '#e5e7eb'} !important;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
-        }
-        .react-tel-input .country-list .country-name {
-          color: ${isTransparent ? '#ffffff' : '#111111'} !important;
-        }
-        .react-tel-input .country-list .dial-code {
-          color: ${isTransparent ? '#B88A44' : '#6b7280'} !important;
-        }
-        .react-tel-input .country-list .country:hover,
-        .react-tel-input .country-list .country.highlight {
-          background-color: ${isTransparent ? 'rgba(184,138,68,0.2)' : '#f3f4f6'} !important;
-        }
-        
-        /* Search Box Styling */
-        .react-tel-input .country-list .search {
-          background-color: ${isTransparent ? '#180C06' : '#ffffff'} !important;
-        }
-        .react-tel-input .country-list .search-box {
-          background-color: ${isTransparent ? 'rgba(255,255,255,0.05)' : '#ffffff'} !important;
-          color: ${isTransparent ? '#ffffff' : '#111111'} !important;
-          border: 1px solid ${isTransparent ? 'rgba(184,138,68,0.3)' : '#d1d5db'} !important;
-        }
-        .react-tel-input .form-control {
-          background-color: transparent !important;
-        }
-      `}</style>
+
     </form>
   )
 }

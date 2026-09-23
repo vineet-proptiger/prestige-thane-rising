@@ -210,144 +210,105 @@ const CarouselSection = ({ setIsOpen, title = "Glimpses of Masterpiece", subtitl
           </div>
         </div>
 
-        {/* ── Mobile Stacked Grid (Gallery only) ── */}
+        {/* ── Architectural Gallery Bento Grid (All Devices) ── */}
         {id === 'gallery' && (
-          <div className="block md:hidden">
-            <div className="flex flex-col gap-4">
-              {images.map((img, idx) => (
-                <div 
-                  key={idx}
-                  className="relative w-full rounded-lg overflow-hidden cursor-pointer group"
-                  style={{ aspectRatio: '16/9', background: '#eee' }}
-                  onClick={() => setSelectedImgIndex(idx)}
-                >
-                  <Image
-                    src={img.src || img.img}
-                    alt={img.alt || img.title || img.label || `Gallery Image ${idx + 1}`}
-                    fill
-                    sizes="100vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div 
-                    className="absolute bottom-0 left-0 right-0 p-4 flex flex-col justify-end"
-                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)', minHeight: '40%' }}
-                  >
-                    <h3 
-                      className="text-white text-base font-bold tracking-wide" 
-                      style={{ fontFamily: F_JOST }}
-                    >
-                      {img.title || img.label}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ── Desktop Architectural Bento Grid (Gallery only) ── */}
-        {id === 'gallery' && (
-          <div className="hidden md:block">
-            <div className="grid grid-cols-12 gap-4 lg:gap-5">
+          <div>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-5">
               
-              {/* Main Featured Hero Frame (Image 0) - Spans 8 cols, 2 rows */}
+              {/* Main Featured Hero Frame (Image 0) - Mobile: full width, Desktop: Spans 8 cols, 2 rows */}
               <div 
-                className="col-span-8 row-span-2 relative rounded-2xl overflow-hidden cursor-pointer group shadow-md hover:shadow-2xl transition-all duration-500 bg-gray-100"
-                style={{ minHeight: '484px' }}
+                className="col-span-1 md:col-span-8 md:row-span-2 relative rounded-2xl overflow-hidden cursor-pointer group shadow-md hover:shadow-2xl transition-all duration-500 bg-gray-100 h-[260px] sm:h-[340px] md:h-auto md:min-h-[484px]"
                 onClick={() => setSelectedImgIndex(0)}
               >
                 <Image
                   src={images[0]?.src || images[0]?.img}
-                  alt={images[0]?.alt || images[0]?.title || 'Featured Villa'}
+                  alt={images[0]?.alt || images[0]?.title || 'Featured Residence'}
                   fill
-                  sizes="(max-width: 1200px) 65vw, 800px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   priority
                 />
                 <div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex flex-col justify-between p-6 sm:p-8"
+                  className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex flex-col justify-between p-5 sm:p-8"
                 >
                   <div className="flex items-center justify-between">
                     <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-[11px] font-extrabold uppercase tracking-wider border border-white/30 shadow-sm">
                       <span className="text-yellow-400">✨</span> Featured Residence
                     </span>
-                    <span className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-white text-2xl lg:text-3xl font-extrabold mb-2 tracking-wide" style={{ fontFamily: F_JOST }}>
+                    <h3 className="text-white text-xl sm:text-2xl lg:text-3xl font-extrabold mb-1.5 sm:mb-2 tracking-wide" style={{ fontFamily: F_JOST }}>
                       {images[0]?.title || images[0]?.label}
                     </h3>
-                    <p className="text-white/80 text-[13px] sm:text-[14px] max-w-xl line-clamp-2 font-normal">
+                    <p className="text-white/80 text-[12.5px] sm:text-[14px] max-w-xl line-clamp-2 font-normal">
                       {images[0]?.desc || 'Experience grand living spaces surrounded by verdant nature.'}
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Side Stack Item 1 (Image 1) - Spans 4 cols */}
+              {/* Side Stack Item 1 (Image 1) - Mobile: full width, Desktop: Spans 4 cols */}
               <div 
-                className="col-span-4 relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-500 bg-gray-100"
-                style={{ height: '232px' }}
+                className="col-span-1 md:col-span-4 relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-500 bg-gray-100 h-[220px] sm:h-[260px] md:h-[232px]"
                 onClick={() => setSelectedImgIndex(1)}
               >
                 <Image
                   src={images[1]?.src || images[1]?.img}
                   alt={images[1]?.alt || images[1]?.title || 'Gallery 2'}
                   fill
-                  sizes="400px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
-                  <h4 className="text-white text-[16px] font-bold tracking-wide" style={{ fontFamily: F_JOST }}>
+                  <h4 className="text-white text-[15px] sm:text-[16px] font-bold tracking-wide" style={{ fontFamily: F_JOST }}>
                     {images[1]?.title || images[1]?.label}
                   </h4>
                   <span className="text-white/70 text-[11.5px] mt-0.5">Click to expand</span>
                 </div>
               </div>
 
-              {/* Side Stack Item 2 (Image 2) - Spans 4 cols */}
+              {/* Side Stack Item 2 (Image 2) - Mobile: full width, Desktop: Spans 4 cols */}
               <div 
-                className="col-span-4 relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-500 bg-gray-100"
-                style={{ height: '232px' }}
+                className="col-span-1 md:col-span-4 relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-500 bg-gray-100 h-[220px] sm:h-[260px] md:h-[232px]"
                 onClick={() => setSelectedImgIndex(2)}
               >
                 <Image
                   src={images[2]?.src || images[2]?.img}
                   alt={images[2]?.alt || images[2]?.title || 'Gallery 3'}
                   fill
-                  sizes="400px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
-                  <h4 className="text-white text-[16px] font-bold tracking-wide" style={{ fontFamily: F_JOST }}>
+                  <h4 className="text-white text-[15px] sm:text-[16px] font-bold tracking-wide" style={{ fontFamily: F_JOST }}>
                     {images[2]?.title || images[2]?.label}
                   </h4>
                   <span className="text-white/70 text-[11.5px] mt-0.5">Click to expand</span>
                 </div>
               </div>
 
-              {/* Bottom Row: 3 equal cards spanning 4 cols each (Images 3, 4, 5) */}
+              {/* Bottom Row: 3 equal cards spanning 4 cols each on Desktop, full width on Mobile (Images 3, 4, 5) */}
               {[3, 4, 5].map((imgIdx) => {
                 const img = images[imgIdx];
                 if (!img) return null;
                 return (
                   <div
                     key={imgIdx}
-                    className="col-span-4 relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-500 bg-gray-100"
-                    style={{ height: '230px' }}
+                    className="col-span-1 md:col-span-4 relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-500 bg-gray-100 h-[220px] sm:h-[260px] md:h-[230px]"
                     onClick={() => setSelectedImgIndex(imgIdx)}
                   >
                     <Image
                       src={img.src || img.img}
                       alt={img.alt || img.title || `Gallery ${imgIdx + 1}`}
                       fill
-                      sizes="400px"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
-                      <h4 className="text-white text-[16px] font-bold tracking-wide" style={{ fontFamily: F_JOST }}>
+                      <h4 className="text-white text-[15px] sm:text-[16px] font-bold tracking-wide" style={{ fontFamily: F_JOST }}>
                         {img.title || img.label}
                       </h4>
                       <span className="text-white/70 text-[11.5px] mt-0.5">Click to expand</span>

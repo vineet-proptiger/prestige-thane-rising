@@ -718,7 +718,7 @@ const Hero = ({ setIsOpen }) => {
             className="btn-gold-outline hero-btn-one hero-btn-pill"
             style={{ fontSize: '14px', padding: '11px 24px', fontWeight: '700', textTransform: 'none', cursor: 'pointer', display: 'inline-block' }}
           >
-            Download Brochure
+            Submit EOI
           </button>
 
           <button

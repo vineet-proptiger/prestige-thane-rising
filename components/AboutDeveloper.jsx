@@ -1,7 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+
 import { PROJECT_ID, PROJECT_NAME, API_ENDPOINT, SHEET_NAME, SECRET_KEY, CITY_DISPLAY } from '../lib/config'
 import { buildTrackingFields } from '../lib/formMeta'
 
@@ -18,18 +17,14 @@ const ContactForm = () => {
 
   const handle = (e) => {
     const { name, value } = e.target
-    setForm({ ...form, [name]: value })
+    setForm({ ...form, [name]: name === 'phone' ? value.replace(/\D/g, '').slice(0, 10) : value })
   }
 
   const submit = async (e) => {
     e.preventDefault()
     
-    if (form.phone.length < 10) { setError('Enter a valid mobile number'); return }
-    if (form.phone.startsWith('91') && form.phone.length === 12) {
-      if (!/^[6-9]\d{9}$/.test(form.phone.slice(2))) { setError('Indian number must start with 6, 7, 8, or 9'); return }
-    } else if (form.phone.startsWith('91') && form.phone.length !== 12) {
-      setError('Enter valid 10-digit Indian number'); return
-    }
+    if (form.phone.length !== 10) { setError('Enter valid 10-digit number'); return }
+    if (!/^[6-9]\d{9}$/.test(form.phone)) { setError('Phone number must start with 6, 7, 8, or 9'); return }
 
     setError(''); setLoading(true)
     const tracking = buildTrackingFields()
@@ -73,7 +68,7 @@ const ContactForm = () => {
       }
     }
 
-    const fullPhone = `+${form.phone}`
+    const fullPhone = `+91${form.phone}`
 
     const payload = new FormData()
     payload.append('fullname', form.fullname)
@@ -179,36 +174,9 @@ const ContactForm = () => {
           display: 'block', fontSize: '11px', fontWeight: '700', color: '#ffffff',
           fontFamily: F_JOST, letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '5px'
         }}>Mobile Number <span style={{ color: GOLD }}>*</span></label>
-        <PhoneInput
-          country={'in'}
-          value={form.phone}
-          onChange={(phone) => setForm({ ...form, phone })}
-          placeholder="Mobile Number"
-          enableSearch={true}
-          disableSearchIcon={true}
-          searchPlaceholder="Search country..."
-          inputStyle={{
-            width: '100%',
-            fontFamily: F_SANS
-          }}
-          inputClass="form-input !pl-[48px] !py-[10px] !h-auto"
-          buttonStyle={{
-            backgroundColor: 'transparent',
-            border: 'none',
-            borderRight: '1px solid rgba(0, 0, 0, 0.1)',
-            padding: '0 4px'
-          }}
-          dropdownStyle={{
-            color: '#111',
-            fontFamily: F_SANS,
-            width: '300px',
-            borderRadius: '8px',
-            boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
-          }}
-          containerStyle={{
-            width: '100%'
-          }}
-        />
+        <input name="phone" required value={form.phone} onChange={handle}
+          placeholder="10-digit mobile number" maxLength={10}
+          className="form-input" style={{ fontFamily: F_SANS, width: '100%' }} />
       </div>
 
       {error && <p style={{ color: 'red', fontSize: '12px' }}>{error}</p>}

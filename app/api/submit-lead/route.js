@@ -31,9 +31,10 @@ export async function POST(request) {
     }
 
     /* ── Required fields ── */
-    let phone = get('phone').replace(/[^\d+]/g, '')
-    // Note: The phone number might include the country code now, so it will be 11-15 digits with a + sign.
-    if (phone.length === 0 || phone === '+') {
+    let phone = get('phone').replace(/\D/g, '')
+    if (phone.length > 10) phone = phone.slice(-10)
+    
+    if (phone.length === 0) {
       return Response.json({ status: false, msg: 'Invalid phone number' })
     }
     const email = get('email')
